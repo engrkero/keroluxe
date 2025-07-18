@@ -1,0 +1,350 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+
+    /* Base Layer: Root variables and global styles */
+    @layer base {
+      :root {
+        /* KeroLuxe New Professional Palette */
+        --keroluxe-black-hsl: 0 0% 0%; /* #000000 */
+        --keroluxe-white-hsl: 0 0% 100%; /* #FFFFFF */
+        --keroluxe-gold-hsl: 45 95% 48%; /* #F5BD02 */
+        --keroluxe-off-white-hsl: 0 0% 96%; /* #F5F5F5 */
+        --keroluxe-grey-hsl: 0 0% 50%; /* #808080 */
+        --keroluxe-dark-gold-hsl: 43 97% 42%; /* #D4A506 */
+
+        /* Core Semantic Colors - Mapped to new KeroLuxe Palette */
+        --background: var(--keroluxe-white-hsl); 
+        --foreground: var(--keroluxe-black-hsl); 
+
+        --card: var(--keroluxe-white-hsl);
+        --card-foreground: var(--keroluxe-black-hsl);
+
+        --popover: var(--keroluxe-white-hsl);
+        --popover-foreground: var(--keroluxe-black-hsl);
+
+        --primary: var(--keroluxe-black-hsl); 
+        --primary-foreground: var(--keroluxe-white-hsl); 
+        
+        --accent: var(--keroluxe-gold-hsl); 
+        --accent-foreground: var(--keroluxe-black-hsl); 
+
+        --secondary: var(--keroluxe-off-white-hsl); 
+        --secondary-foreground: var(--keroluxe-grey-hsl); 
+
+        --muted: var(--keroluxe-off-white-hsl); 
+        --muted-foreground: var(--keroluxe-grey-hsl); 
+
+        --destructive: 0 84% 60%; 
+        --destructive-foreground: 0 0% 100%;
+
+        --border: var(--keroluxe-grey-hsl); 
+        --input: var(--keroluxe-grey-hsl); 
+        --ring: var(--keroluxe-gold-hsl); 
+
+        --radius: 0.5rem;
+      }
+
+      .dark {
+        --background: var(--keroluxe-black-hsl); 
+        --foreground: var(--keroluxe-white-hsl); 
+
+        --card: 0 0% 10%; 
+        --card-foreground: var(--keroluxe-white-hsl);
+
+        --popover: 0 0% 10%;
+        --popover-foreground: var(--keroluxe-white-hsl);
+
+        --primary: var(--keroluxe-gold-hsl); 
+        --primary-foreground: var(--keroluxe-black-hsl); 
+        
+        --accent: var(--keroluxe-gold-hsl);
+        --accent-foreground: var(--keroluxe-black-hsl);
+
+        --secondary: 0 0% 15%; 
+        --secondary-foreground: var(--keroluxe-off-white-hsl);
+
+        --muted: 0 0% 15%;
+        --muted-foreground: var(--keroluxe-grey-hsl);
+
+        --destructive: 0 70% 50%; 
+        --destructive-foreground: var(--keroluxe-white-hsl);
+
+        --border: var(--keroluxe-grey-hsl);
+        --input: var(--keroluxe-grey-hsl);
+        --ring: var(--keroluxe-gold-hsl);
+      }
+    }
+
+    @layer base {
+      * {
+        @apply border-border;
+      }
+      body {
+        @apply bg-background text-foreground;
+        font-family: 'Lato', sans-serif;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        @apply font-serif; /* text-foreground is inherited from body */
+      }
+    }
+
+    /* Utilities Layer: Custom utility classes */
+    @layer utilities {
+      .text-keroluxe-gold { color: hsl(var(--keroluxe-gold-hsl)); }
+      .bg-keroluxe-gold { background-color: hsl(var(--keroluxe-gold-hsl)); }
+      .border-keroluxe-gold { border-color: hsl(var(--keroluxe-gold-hsl)); }
+      .text-keroluxe-dark-gold { color: hsl(var(--keroluxe-dark-gold-hsl)); }
+
+
+      .text-keroluxe-black { color: hsl(var(--keroluxe-black-hsl)); } 
+      /* In dark mode, if something explicitly needs to be black, it stays black. */
+      .dark .text-keroluxe-black { color: hsl(var(--keroluxe-black-hsl)); } 
+      
+      .bg-keroluxe-black { background-color: hsl(var(--keroluxe-black-hsl)); } 
+      .dark .bg-keroluxe-black { background-color: hsl(var(--keroluxe-black-hsl)); } 
+      
+      .bg-keroluxe-white { background-color: hsl(var(--keroluxe-white-hsl)); } 
+      .text-keroluxe-white { color: hsl(var(--keroluxe-white-hsl)); }
+      /* In dark mode, if something explicitly needs to be white, it stays white. */
+      .dark .text-keroluxe-white { color: hsl(var(--keroluxe-white-hsl)); }
+      .dark .bg-keroluxe-white { background-color: hsl(var(--keroluxe-white-hsl)); }
+
+      .bg-keroluxe-off-white { background-color: hsl(var(--keroluxe-off-white-hsl)); } 
+      .text-keroluxe-off-white { color: hsl(var(--keroluxe-off-white-hsl)); }
+      .dark .text-keroluxe-off-white { color: hsl(var(--keroluxe-off-white-hsl)); } /* Or a specific dark variant like text-zinc-200 */
+      .dark .bg-keroluxe-off-white { background-color: hsl(0 0% 15%); } /* Example: dark variant for off-white bg */
+
+      .text-keroluxe-grey { color: hsl(var(--keroluxe-grey-hsl)); }
+      .dark .text-keroluxe-grey { color: hsl(var(--keroluxe-grey-hsl)); } /* Or a specific dark variant like text-zinc-400 */
+    }
+
+    /* Components Layer: Custom component styles */
+    @layer components {
+      .glassmorphism {
+        background: hsla(var(--card) / 0.2); 
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid hsla(var(--border) / 0.3);
+      }
+      
+      /* Light Mode Button Styles */
+      .btn-primary-light { 
+          background-color: hsl(var(--keroluxe-black-hsl));
+          color: hsl(var(--keroluxe-white-hsl));
+      }
+      .btn-primary-light:hover {
+          background-color: hsl(var(--keroluxe-gold-hsl));
+          color: hsl(var(--keroluxe-black-hsl));
+      }
+
+      .btn-secondary-light { 
+          background-color: hsl(var(--keroluxe-off-white-hsl));
+          color: hsl(var(--keroluxe-grey-hsl));
+          border: 1px solid transparent; /* Or specific border */
+      }
+      .btn-secondary-light:hover {
+          color: hsl(var(--keroluxe-gold-hsl));
+          border-color: hsl(var(--keroluxe-gold-hsl));
+      }
+
+      .btn-ghost-light {
+          color: hsl(var(--keroluxe-grey-hsl));
+      }
+      .btn-ghost-light:hover {
+          color: hsl(var(--keroluxe-gold-hsl));
+          background-color: hsla(var(--keroluxe-gold-hsl) / 0.1);
+      }
+
+      .btn-link-light {
+          color: hsl(var(--keroluxe-gold-hsl));
+      }
+      .btn-link-light:hover {
+          color: hsl(var(--keroluxe-dark-gold-hsl));
+          text-decoration: underline;
+      }
+      
+      .btn-outline-light {
+          border: 1px solid hsl(var(--keroluxe-gold-hsl));
+          color: hsl(var(--keroluxe-gold-hsl));
+      }
+      .btn-outline-light:hover {
+          background-color: hsl(var(--keroluxe-gold-hsl));
+          color: hsl(var(--keroluxe-black-hsl));
+      }
+
+      /* Dark Mode Button Styles */
+      .btn-primary-dark { 
+          background-color: hsl(var(--keroluxe-gold-hsl));
+          color: hsl(var(--keroluxe-black-hsl));
+      }
+      .btn-primary-dark:hover {
+          background-color: hsl(var(--keroluxe-white-hsl));
+          color: hsl(var(--keroluxe-black-hsl));
+      }
+
+      .btn-secondary-dark {
+          background-color: hsl(0 0% 15%); /* Darker grey */
+          color: hsl(0 0% 80%); /* Lighter grey text */
+          border: 1px solid hsl(0 0% 25%); /* Slightly lighter border */
+      }
+      .btn-secondary-dark:hover {
+          color: hsl(var(--keroluxe-gold-hsl));
+          border-color: hsl(var(--keroluxe-gold-hsl));
+      }
+
+      .btn-ghost-dark {
+          color: hsl(0 0% 60%); /* Mid-grey text */
+      }
+      .btn-ghost-dark:hover {
+          color: hsl(var(--keroluxe-gold-hsl));
+          background-color: hsla(var(--keroluxe-gold-hsl) / 0.2);
+      }
+
+      .btn-link-dark {
+        color: hsl(var(--keroluxe-gold-hsl));
+      }
+      .btn-link-dark:hover {
+        color: hsl(45 95% 60%); /* Brighter gold for hover */
+        text-decoration: underline;
+      }
+
+      .btn-outline-dark {
+          border: 1px solid hsl(var(--keroluxe-gold-hsl));
+          color: hsl(var(--keroluxe-gold-hsl));
+      }
+      .btn-outline-dark:hover {
+          background-color: hsl(var(--keroluxe-gold-hsl));
+          color: hsl(var(--keroluxe-black-hsl));
+      }
+
+      /* Applying styles using the specific light/dark classes */
+      .btn-primary { 
+        @apply btn-primary-light;
+      }
+      .dark .btn-primary {
+        @apply btn-primary-dark;
+      }
+
+      .btn-secondary { 
+        @apply btn-secondary-light;
+      }
+      .dark .btn-secondary {
+        @apply btn-secondary-dark;
+      }
+
+      .btn-ghost { 
+        @apply btn-ghost-light;
+      }
+      .dark .btn-ghost {
+        @apply btn-ghost-dark;
+      }
+      
+      .btn-link-gold { /* Renamed to avoid conflict if there's a generic .btn-link */
+        @apply btn-link-light;
+      }
+      .dark .btn-link-gold {
+        @apply btn-link-dark;
+      }
+
+      .btn-outline-gold { /* Renamed to avoid conflict */
+        @apply btn-outline-light;
+      }
+      .dark .btn-outline-gold {
+        @apply btn-outline-dark;
+      }
+
+      .btn-destructive {
+          background-color: hsl(var(--destructive));
+          color: hsl(var(--destructive-foreground));
+      }
+      .btn-destructive:hover {
+        opacity: 0.9;
+      }
+
+      .product-card-button {
+        @apply btn-primary-light; /* Use the base light style */
+      }
+      .dark .product-card-button {
+        @apply btn-primary-dark; /* Use the base dark style */
+      }
+      .dark .product-card-button:hover { /* Specific hover for dark product card button if needed */
+        background-color: hsl(var(--keroluxe-white-hsl));
+        color: hsl(var(--keroluxe-black-hsl));
+      }
+
+
+      .nav-icon {
+        color: hsl(var(--keroluxe-grey-hsl));
+      }
+      .nav-icon:hover {
+        color: hsl(var(--keroluxe-gold-hsl));
+      }
+      .dark .nav-icon {
+        color: hsl(0 0% 60%); /* Example: zinc-400 */
+      }
+      .dark .nav-icon:hover {
+        color: hsl(var(--keroluxe-gold-hsl));
+      }
+      
+      .global-loader-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: hsla(var(--background) / 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        backdrop-filter: blur(5px);
+      }
+
+      .keroluxe-loader {
+        width: 60px;
+        height: 60px;
+        position: relative;
+      }
+
+      .keroluxe-loader::before,
+      .keroluxe-loader::after {
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+        animation: pulsOut 1.8s ease-in-out infinite;
+        filter: drop-shadow(0 0 5px hsl(var(--accent)));
+      }
+
+      .keroluxe-loader::before {
+        width: 100%;
+        height: 100%;
+        background-color: hsla(var(--accent) / 0.5);
+        top:0;
+        left:0;
+      }
+
+      .keroluxe-loader::after {
+        width: calc(100% - 20px);
+        height: calc(100% - 20px);
+        background-color: hsl(var(--accent));
+        top: 10px;
+        left: 10px;
+        animation-delay: 0.2s;
+      }
+    }
+
+    /* Keyframes */
+    @keyframes pulsOut {
+      0%,
+      100% {
+        transform: scale(0.8);
+        opacity: 0.7;
+      }
+      50% {
+        transform: scale(1.2);
+        opacity: 1;
+      }
+    }
